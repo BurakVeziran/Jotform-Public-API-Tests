@@ -1,0 +1,23 @@
+{
+  "name": "jotform-public-api-tests",
+  "version": "1.0.0",
+  "description": "Jotform public api tests using Playwright with Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test --headed",
+    "test:api": "npx playwright test"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BurakVeziran/jotform-public-api-test"
+  },
+  "author": "Burak Veziran",
+  "license": "MIT",
+  "dependencies": {
+    "@playwright/test": "^1.36.2",
+    "npm": "^9.8.1",
+    "typescript": "^5.1.6",
+    "winston": "^3.10.0"
+  }
+}

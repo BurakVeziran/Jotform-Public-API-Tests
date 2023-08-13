@@ -27,3 +27,10 @@ export function randomNumberValue(length: number): string {
     }
     return result;
 }
+
+
+
+// Get the variable
+
+
+

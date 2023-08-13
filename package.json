@@ -4,9 +4,8 @@
   "description": "Jotform public api tests using Playwright with Typescript",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --headed",
+    "test": "npx playwright test --headed --workers=1",
     "test:api": "npx playwright test"
-
   },
   "repository": {
     "type": "git",
@@ -15,9 +14,15 @@
   "author": "Burak Veziran",
   "license": "MIT",
   "dependencies": {
-    "@playwright/test": "^1.36.2",
     "npm": "^9.8.1",
+    "playwright": "^1.37.0",
     "typescript": "^5.1.6",
     "winston": "^3.10.0"
+  },
+  "playwrightConfig": {
+    "globalSetup": "./ts/randomValueGenerator.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.37.0"
   }
 }

@@ -24,3 +24,5 @@ jobs:
           APIKEY: ${{ secrets.APIKEY }}
           PASSWORD: ${{ secrets.PASSWORD }}
           USERNAME: ${{ secrets.USERNAME }}
+          EMAIL: ${{ secrets.EMAIL }}
+          NAME: ${{ secrets.NAME }}

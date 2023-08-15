@@ -6,7 +6,6 @@ test.skip(`Logout is Success`, async ({ request }) => {
     const APIKey = data.APIKey;
     const username = data.username;
     const password = data.password;
-
     const loginRequest = await request.get(`${baseURL}/user/login?username=${username}&password=${password}&apiKey=${APIKey}`);
     const logoutRequest = await request.get(`${baseURL}/v1/user/logout?apiKey=${APIKey}`);
     const response = await logoutRequest.json();

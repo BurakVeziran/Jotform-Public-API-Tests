@@ -7,7 +7,6 @@ test(`Login is Success`, async ({ request }) => {
     const APIKey = data.APIKey;
     const username = data.username;
     const password = data.password;
-
     const loginRequest = await request.get(`${baseURL}/user/login?username=${username}&password=${password}&apiKey=${APIKey}`);
     const response = await loginRequest.json();
 

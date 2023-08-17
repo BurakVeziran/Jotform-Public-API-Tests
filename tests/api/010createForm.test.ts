@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { data } from '../../ts/data';
 
-test.only(`Create Form is Success`, async ({ page }) => {
+test.only(`Create Form is Success`, async ({ page, request }) => {
     const baseURL = data.baseURL;
     const APIKey = data.APIKey;
     const formProperties = data.formProperties;

@@ -1,12 +1,14 @@
 import { test, expect } from '@playwright/test';
 import { data } from '../../ts/data';
-test(`Create Form is Success`, async ({ request }) => {
+
+test.only(`Create Form is Success`, async ({ page }) => {
     const baseURL = data.baseURL;
     const APIKey = data.APIKey;
     const formProperties = data.formProperties;
     const username = data.username;
     process.env.formTitle = formProperties.title;
-    const formdata = new FormData();
+
+    const formdata = new URLSearchParams();
     formdata.append("questions[0][type]", "control_textbox");
     formdata.append("questions[0][text]", "textbox");
     formdata.append("questions[1][type]", "control_head");
@@ -18,8 +20,9 @@ test(`Create Form is Success`, async ({ request }) => {
     const requestOptions = {
         method: 'POST',
         headers: myHeaders,
-        body: formdata,
+        body: formdata.toString(),
     }
+
     const createFormRequest = await fetch(`${baseURL}/form?apiKey=${APIKey}&properties[title]=${formProperties.title}`, requestOptions);
     const response = await createFormRequest.json();
     process.env.questionZeroText = "textbox";
@@ -34,4 +37,3 @@ test(`Create Form is Success`, async ({ request }) => {
     expect(process.env.contentTitle).toBe(formProperties.title);
     expect(response.content.username).toBe(username);
 })
-

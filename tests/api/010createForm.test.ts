@@ -14,12 +14,8 @@ test.only(`Create Form is Success`, async ({ page }) => {
     formdata.append("questions[1][type]", "control_head");
     formdata.append("questions[1][text]", "Form Title");
 
-    var myHeaders = new Headers();
-    myHeaders.append("Cookie", "JOTFORM_SESSION=c05a5fb9-d1f3-90c9-df95-6bf946ac; _gj=79dda518dfe6516f3a925c51fa168a84c77bacff; guest=guest_e78104f00932113c; showToolbar=true");
-
     const requestOptions = {
         method: 'POST',
-        headers: myHeaders,
         body: formdata.toString(),
     }
 

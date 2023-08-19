@@ -21,3 +21,9 @@ export const data =
         fields: 'ip,dt,1'
     }
 }
+
+export const formFields = [
+    { type: 'control_textbox', text: 'Name' },
+    { type: 'control_email', text: 'Email' },
+    { type: 'control_textarea', text: 'Message' },
+];

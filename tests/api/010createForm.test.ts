@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { data } from '../../ts/data';
+import { data, formFields } from '../../ts/data';
+import fetch from 'node-fetch';
 
-test.only(`Create Form is Success`, async ({ page, request }) => {
+test(`Create Form is Success`, async ({ }) => {
     const baseURL = data.baseURL;
     const APIKey = data.APIKey;
     const formProperties = data.formProperties;
@@ -9,22 +10,27 @@ test.only(`Create Form is Success`, async ({ page, request }) => {
     process.env.formTitle = formProperties.title;
 
     const formdata = new URLSearchParams();
-    formdata.append("questions[0][type]", "control_textbox");
-    formdata.append("questions[0][text]", "textbox");
-    formdata.append("questions[1][type]", "control_head");
-    formdata.append("questions[1][text]", "Form Title");
+    formFields.forEach((field, index) => {
+        formdata.append(`questions[${index}][type]`, field.type);
+        formdata.append(`questions[${index}][text]`, field.text);
+    });
 
     const requestOptions = {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
         body: formdata.toString(),
     }
 
     const createFormRequest = await fetch(`${baseURL}/form?apiKey=${APIKey}&properties[title]=${formProperties.title}`, requestOptions);
     const response = await createFormRequest.json();
-    process.env.questionZeroText = "textbox";
-    process.env.questionZeroType = "control_textbox"
-    process.env.questionOneText = "Form Title";
-    process.env.questionOneType = "control_head";
+    process.env.questionZeroText = formFields[0].text;
+    process.env.questionZeroType = formFields[0].type;
+    process.env.questionOneText = formFields[1].text;
+    process.env.questionOneType = formFields[1].type;
+    process.env.questionTwoText = formFields[2].text;
+    process.env.questionTwoType = formFields[2].type;
     process.env.formID = response.content.id;
     process.env.message = response.message;
     process.env.contentTitle = response.content.title;

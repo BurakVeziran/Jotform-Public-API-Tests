@@ -5,8 +5,7 @@ test(`Clone Form is Success`, async ({ request }) => {
     const baseURL = process.env.BASEURL;
     const APIKey = process.env.APIKEY;
     const username = process.env.USERNAME;
-    const formID = process.env.formID;
-    const formTitle = process.env.contentTitle;
+    const formID = process.env.STATICFORMID;
 
     const getFormInformationRequest = await request.post(`${baseURL}/form/${formID}/clone?apiKey=${APIKey}`);
     const response = await getFormInformationRequest.json();
@@ -14,6 +13,6 @@ test(`Clone Form is Success`, async ({ request }) => {
     expect(getFormInformationRequest.status()).toBe(200);
     expect(response.message).toBe("success");
     expect(response.content.username).toBe(username);
-    expect(response.content.title).toBe("Clone of" + " " + formTitle);
+    expect(response.content.title).toBe("Clone of" + " " + "API Tests Do Not Delete");
 })
 

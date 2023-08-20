@@ -26,12 +26,6 @@ test(`Create Form is Success`, async ({ }) => {
 
     const createFormRequest = await fetch(`${baseURL}/form?apiKey=${APIKey}&properties[title]=${formProperties.title}`, requestOptions);
     const response = await createFormRequest.json();
-    process.env.questionZeroText = formFields[0].text;
-    process.env.questionZeroType = formFields[0].type;
-    process.env.questionOneText = formFields[1].text;
-    process.env.questionOneType = formFields[1].type;
-    process.env.questionTwoText = formFields[2].text;
-    process.env.questionTwoType = formFields[2].type;
     process.env.formID = response.content.id;
     process.env.message = response.message;
     process.env.contentTitle = response.content.title;

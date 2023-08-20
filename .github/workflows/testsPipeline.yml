@@ -29,3 +29,4 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           EMAIL: ${{ secrets.EMAIL }}
           NAME: ${{ secrets.NAME }}
+          STATICFORMID: ${{ secrets.STATICFORMID }}

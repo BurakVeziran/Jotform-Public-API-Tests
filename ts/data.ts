@@ -7,6 +7,7 @@ export const data =
     email : process.env.EMAIL,
     password : process.env.PASSWORD,
     name : process.env.NAME,
+    staticFormID: process.env. STATICFORMID,
 
     randomEmail: randomValue(10)+"@gmail.com",
     randomUsername: randomValue(10),

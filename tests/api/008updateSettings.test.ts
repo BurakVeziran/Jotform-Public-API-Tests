@@ -3,8 +3,8 @@ import { data } from '../../ts/data';
 require('dotenv').config();
 
 test(`Update User Settings is success`, async ({ request }) => {
-    const baseURL = process.env.baseURL;
-    const APIKey = process.env.APIKey;
+    const baseURL = process.env.BASEURL;
+    const APIKey = process.env.APIKEY;
     const randomCompany = data.randomCompanyName;
 
     const updateSettingsRequest = await request.post(`${baseURL}/user/settings?apiKey=${APIKey}&company=${randomCompany}`);

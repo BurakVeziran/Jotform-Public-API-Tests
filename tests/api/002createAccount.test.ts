@@ -3,7 +3,7 @@ import { data } from '../../ts/data';
 require('dotenv').config();
 
 test(`Created accounts information is correct`, async ({ request }) => {
-    const baseURL = process.env.baseURL;
+    const baseURL = process.env.BASEURL;
     const randomEmail = data.randomEmail;
     const randomUsername = data.randomUsername;
     const randomPassword = data.randomPassword;

@@ -3,9 +3,9 @@ import fetch from 'node-fetch';
 require('dotenv').config();
 
 test(`Add Question is Success`, async ({ }) => {
-    const baseURL = process.env.baseURL;
-    const APIKey = process.env.APIKey;
-    const formID = process.env.staticFormID;
+    const baseURL = process.env.BASEURL;
+    const APIKey = process.env.APIKEY;
+    const formID = process.env.STATICFORMID;
 
     const formdata = new URLSearchParams();
     formdata.append("question[type]", "control_textarea");

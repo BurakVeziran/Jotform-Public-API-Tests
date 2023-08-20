@@ -2,12 +2,12 @@ import { test, expect } from '@playwright/test';
 require('dotenv').config();
 
 test(`User Information is correct`, async ({ request }) => {
-    const baseURL = process.env.baseURL;
-    const APIKey = process.env.APIKey;
-    const username = process.env.username;
-    const email = process.env.email;
-    const timeZone = process.env.timeZone;
-    const name = process.env.name;
+    const baseURL = process.env.BASEURL;
+    const APIKey = process.env.APIKEY;
+    const username = process.env.USERNAME;
+    const email = process.env.EMAIL;
+    const timeZone = process.env.TIMEZONE;
+    const name = process.env.NAME;
 
     const informationRequest = await request.get(`${baseURL}/user?apiKey=${APIKey}`);
     const response = await informationRequest.json();

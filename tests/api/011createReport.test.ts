@@ -3,8 +3,8 @@ import { data } from '../../ts/data';
 require('dotenv').config();
 
 test(`Create Report is Success`, async ({ request }) => {
-    const baseURL = process.env.baseURL;
-    const APIKey = process.env.APIKey;
+    const baseURL = process.env.BASEURL;
+    const APIKey = process.env.APIKEY;
     const formID = process.env.formID;
     const reportProperties = data.reportProperties;
 

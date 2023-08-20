@@ -2,8 +2,8 @@ import { test, expect } from '@playwright/test';
 require('dotenv').config();
 
 test(`Form Question is Success`, async ({ request }) => {
-    const baseURL = process.env.baseURL;
-    const APIKey = process.env.APIKey;
+    const baseURL = process.env.BASEURL;
+    const APIKey = process.env.APIKEY;
     const questionZeroType = process.env.questionZeroType;
     const questionZeroText = process.env.questionZeroText;
     const questionOneType = process.env.questionOneType;

@@ -4,10 +4,10 @@ import fetch from 'node-fetch';
 require('dotenv').config();
 
 test(`Create Form is Success`, async ({ }) => {
-    const baseURL = process.env.baseURL;
-    const APIKey = process.env.APIKey;
+    const baseURL = process.env.BASEURL;
+    const APIKey = process.env.APIKEY;
     const formProperties = data.formProperties;
-    const username = process.env.username;
+    const username = process.env.USERNAME;
     process.env.formTitle = formProperties.title;
 
     const formdata = new URLSearchParams();

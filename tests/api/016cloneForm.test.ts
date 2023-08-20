@@ -1,11 +1,13 @@
 import { test, expect } from '@playwright/test';
-import { data } from '../../ts/data';
+require('dotenv').config();
+
 test(`Clone Form is Success`, async ({ request }) => {
-    const baseURL = data.baseURL;
-    const APIKey = data.APIKey;
-    const username = data.username;
+    const baseURL = process.env.baseURL;
+    const APIKey = process.env.APIKey;
+    const username = process.env.username;
     const formID = process.env.formID;
     const formTitle = process.env.contentTitle;
+
     const getFormInformationRequest = await request.post(`${baseURL}/form/${formID}/clone?apiKey=${APIKey}`);
     const response = await getFormInformationRequest.json();
 

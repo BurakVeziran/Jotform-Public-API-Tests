@@ -30,3 +30,5 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           NAME: ${{ secrets.NAME }}
           STATICFORMID: ${{ secrets.STATICFORMID }}
+          BASEURL: ${{ secrets.BASEURL }}
+          TIMEZONE: ${{ secrets.TIMEZONE }}

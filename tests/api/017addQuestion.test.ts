@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
-import {data, } from '../../ts/data';
 import fetch from 'node-fetch';
+require('dotenv').config();
 
 test(`Add Question is Success`, async ({ }) => {
-    const baseURL = data.baseURL;
-    const APIKey = data.APIKey;
-    const formID = data.staticFormID;
+    const baseURL = process.env.baseURL;
+    const APIKey = process.env.APIKey;
+    const formID = process.env.staticFormID;
 
     const formdata = new URLSearchParams();
     formdata.append("question[type]", "control_textarea");

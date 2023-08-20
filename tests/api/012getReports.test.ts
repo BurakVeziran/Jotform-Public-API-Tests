@@ -1,11 +1,14 @@
 import { test, expect } from '@playwright/test';
 import { data } from '../../ts/data';
+require('dotenv').config();
+
 test(`Get Report is Success`, async ({ request }) => {
-    const baseURL = data.baseURL;
-    const APIKey = data.APIKey;
+    const baseURL = process.env.baseURL;
+    const APIKey = process.env.APIKey;
     const formID = process.env.formID;
     const reportID = process.env.reportID;
     const reportProperties = data.reportProperties;
+
     const getReportRequest = await request.get
     (`${baseURL}/user/reports?apiKey=${APIKey}`);
     const response = await getReportRequest.json();

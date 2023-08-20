@@ -1,12 +1,14 @@
 import { test, expect } from '@playwright/test';
-import { data } from '../../ts/data';
+require('dotenv').config();
+
 test(`User Information is correct`, async ({ request }) => {
-    const baseURL = data.baseURL;
-    const APIKey = data.APIKey;
-    const username = data.username;
-    const email = data.email;
-    const timeZone = data.timeZone;
-    const name = data.name;
+    const baseURL = process.env.baseURL;
+    const APIKey = process.env.APIKey;
+    const username = process.env.username;
+    const email = process.env.email;
+    const timeZone = process.env.timeZone;
+    const name = process.env.name;
+
     const informationRequest = await request.get(`${baseURL}/user?apiKey=${APIKey}`);
     const response = await informationRequest.json();
 
@@ -16,7 +18,6 @@ test(`User Information is correct`, async ({ request }) => {
     expect(response.content.email).toBe(email);
     expect(response.content.time_zone).toBe(timeZone);
     expect(response.content.name).toBe(name);
-
 });
 
 

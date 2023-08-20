@@ -1,10 +1,13 @@
 import { test, expect } from '@playwright/test';
 import { data } from '../../ts/data';
+require('dotenv').config();
+
 test(`Create Report is Success`, async ({ request }) => {
-    const baseURL = data.baseURL;
-    const APIKey = data.APIKey;
+    const baseURL = process.env.baseURL;
+    const APIKey = process.env.APIKey;
     const formID = process.env.formID;
     const reportProperties = data.reportProperties;
+
     const createReportRequest = await request.post
     (`${baseURL}/form/${formID}/reports?apiKey=${APIKey}&list_type=${reportProperties.listType}&title=${reportProperties.title}&fields=${reportProperties.fields}`);
     const response = await createReportRequest.json();

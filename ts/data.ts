@@ -1,15 +1,6 @@
 import { randomValue } from './randomValueGenerator';
 export const data =
-    {baseURL: "https://api.jotform.com",
-    timeZone: "Europe/Istanbul",
-    APIKey : process.env.APIKEY,
-    username : process.env.USERNAME,
-    email : process.env.EMAIL,
-    password : process.env.PASSWORD,
-    name : process.env.NAME,
-    staticFormID: process.env. STATICFORMID,
-
-    randomEmail: randomValue(10)+"@gmail.com",
+    {randomEmail: randomValue(10)+"@gmail.com",
     randomUsername: randomValue(10),
     randomPassword: randomValue(10),
     randomCompanyName: randomValue(10),

@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { data } from '../../ts/data';
+require('dotenv').config();
+
 test(`Get User Form is Success`, async ({ request }) => {
-    const baseURL = data.baseURL;
-    const APIKey = data.APIKey;
-    const username = data.username;
+    const baseURL = process.env.baseURL;
+    const APIKey = process.env.APIKey;
+    const username = process.env.username;
     const formID = process.env.formID;
     const formTitle = process.env.formTitle;
     const getUserFormRequest = await request.get(`${baseURL}/user/forms?apiKey=${APIKey}`);

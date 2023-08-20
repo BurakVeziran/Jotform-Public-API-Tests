@@ -1,8 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { data } from '../../ts/data';
+require('dotenv').config();
+
 test(`Form Question is Success`, async ({ request }) => {
-    const baseURL = data.baseURL;
-    const APIKey = data.APIKey;
+    const baseURL = process.env.baseURL;
+    const APIKey = process.env.APIKey;
     const questionZeroType = process.env.questionZeroType;
     const questionZeroText = process.env.questionZeroText;
     const questionOneType = process.env.questionOneType;
@@ -10,6 +11,7 @@ test(`Form Question is Success`, async ({ request }) => {
     const questionTwoType = process.env.questionTwoType;
     const questionTwoText = process.env.questionTwoText;
     const formID = process.env.formID;
+
     const getFormQuestionsRequest = await request.get(`${baseURL}/form/${formID}/questions?apiKey=${APIKey}`);
     const response = await getFormQuestionsRequest.json();
 

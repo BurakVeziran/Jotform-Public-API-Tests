@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { data } from '../../ts/data';
+require('dotenv').config();
 
 test(`Account usage is Success`, async ({ request }) => {
-    const baseURL = data.baseURL;
-    const APIKey = data.APIKey;
+    const baseURL = process.env.baseURL;
+    const APIKey = process.env.APIKey;
+
     const usageRequest = await request.get(`${baseURL}/user/usage?apiKey=${APIKey}`);
     const response = await usageRequest.json();
 

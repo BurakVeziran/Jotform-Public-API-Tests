@@ -1,12 +1,13 @@
 import { test, expect } from '@playwright/test';
 import { data, formFields } from '../../ts/data';
 import fetch from 'node-fetch';
+require('dotenv').config();
 
 test(`Create Form is Success`, async ({ }) => {
-    const baseURL = data.baseURL;
-    const APIKey = data.APIKey;
+    const baseURL = process.env.baseURL;
+    const APIKey = process.env.APIKey;
     const formProperties = data.formProperties;
-    const username = data.username;
+    const username = process.env.username;
     process.env.formTitle = formProperties.title;
 
     const formdata = new URLSearchParams();

@@ -1,11 +1,13 @@
 import { test, expect } from '@playwright/test';
 import { data } from '../../ts/data';
+require('dotenv').config();
 
 test(`Created accounts information is correct`, async ({ request }) => {
-    const baseURL = data.baseURL;
+    const baseURL = process.env.baseURL;
     const randomEmail = data.randomEmail;
     const randomUsername = data.randomUsername;
     const randomPassword = data.randomPassword;
+
     const createRequest = await request.post(`${baseURL}/user/register?username=${randomUsername}&password=${randomPassword}&email=${randomEmail}`);
     const response = await createRequest.json();
     process.env.randomEmail = randomEmail;

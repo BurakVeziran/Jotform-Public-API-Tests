@@ -4,6 +4,7 @@ export const data =
     randomUsername: randomValue(10),
     randomPassword: randomValue(10),
     randomCompanyName: randomValue(10),
+    randomFolderName: randomValue(10),
     formProperties : {
         title: randomValue(10)
     },

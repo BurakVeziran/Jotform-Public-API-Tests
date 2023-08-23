@@ -21,7 +21,7 @@ Before you begin, please make sure you have the following:
 2. Navigate to the project directory:
 
    ```bash
-   cd playwright-jotform-api-test-suite
+   cd Jotform-Public-API-Tests
    ```
 
 3. Install the required dependencies using npm:

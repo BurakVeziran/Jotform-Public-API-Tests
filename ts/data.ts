@@ -5,6 +5,7 @@ export const data =
     randomPassword: randomValue(10),
     randomCompanyName: randomValue(10),
     randomFolderName: randomValue(10),
+    randomAnswer: randomValue(10),
     formProperties : {
         title: randomValue(10)
     },
@@ -76,3 +77,101 @@ export const uploadedFileInfo= [
 }]
 
 export const webhookUrl = "https://"+randomValue(5)+".com/handle.php"
+
+const planList = ["FREE","BRONZE","SILVER","GOLD"]
+const randomPlansIndex = Math.floor(Math.random() * planList.length);
+export const randomPlan = planList[randomPlansIndex];
+
+export const plans =
+    { 'FREE': {
+            currency: 'USD',
+            submissions: 100,
+            overSubmissions: 200,
+            sslSubmissions: 100,
+            payments: 10,
+            uploads: 104857600,
+            tickets: 0,
+            subusers: 1,
+            views: 1000,
+            subviews: 1000,
+            formCount: 5,
+            hipaaCompliance: false,
+            fieldPerForm: 100,
+            totalSubmissions: 500,
+            signedDocuments: 10,
+            monthly: 0,
+            yearly: 0,
+            biyearly: 0
+
+},
+        'BRONZE': {
+            currency: 'USD',
+            submissions: 1000,
+            overSubmissions: 10000,
+            sslSubmissions: 1000,
+            payments: 100,
+            uploads: 1073741824,
+            tickets: 3,
+            subusers: 3,
+            views: 10000,
+            formCount: 25,
+            hipaaCompliance: false,
+            fieldPerForm: 250,
+            totalSubmissions: 10000,
+            signedDocuments: 100,
+            monthly: 39,
+            yearly: 408,
+            biyearly: 816
+        },
+        'SILVER': {
+            currency: 'USD',
+            submissions: 2500,
+            overSubmissions: 2500,
+            sslSubmissions: 2500,
+            payments: 250,
+            uploads: 10738466816,
+            tickets: 3,
+            subusers: 10,
+            views: 100000,
+            formCount: 50,
+            hipaaCompliance: false,
+            fieldPerForm: 500,
+            totalSubmissions: 25000,
+            signedDocuments: 250,
+            monthly: 49,
+            yearly: 468,
+            biyearly: 936
+        },
+        'GOLD': {
+            currency: 'USD',
+            submissions: 10000,
+            overSubmissions: 10000,
+            sslSubmissions: 10000,
+            payments: 1000,
+            uploads: 107374182400,
+            tickets: 10,
+            subusers: 100,
+            views: 1000000,
+            formCount: 100,
+            hipaaCompliance: true,
+            fieldPerForm: 1000,
+            totalSubmissions: 100000,
+            signedDocuments: 1000
+
+        }
+    }
+export const propertiesToCheck = [
+    'submissions',
+    'overSubmissions',
+    'sslSubmissions',
+    'payments',
+    'uploads',
+    'tickets',
+    'subusers',
+    'views',
+    'formCount',
+    'hipaaCompliance',
+    'fieldPerForm',
+    'totalSubmissions',
+    'signedDocuments'
+];

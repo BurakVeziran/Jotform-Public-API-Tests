@@ -14,4 +14,3 @@ test(`Delete Folder is Success`, async ({ request }) => {
     expect(response.message).toBe("success");
     expect(response.content).toBe("Folder deleted successfully");
 })
-
